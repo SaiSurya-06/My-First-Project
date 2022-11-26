@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="with=device-width, inital-scale=1.0">
+    <title>College Form</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <a href="pbs.html"><img src="images/logo.jpg" alt="SVIT LOGO" align="top left"></a>
+    <h1> Swami Vivekananda Iinstitute Of Technology</h1>
+</head>
+
+<body>
+    <div class="main">
+        <div class="register">
+            <form method="post" autocomplete="off" name="google-sheet">
+                <center><br><br>
+                    <h2>Registration Form</h2><br>
+                    <label>
+            <table border="3">
+
+                <tr>
+                    <td><b>Student Name : </b></td>
+                    <td><input type="text" name="Student Name" required="" /></td>
+                </tr>
+                <tr>
+                    <td><b>Student ID</b></td>
+                    <td><input type="text" name="Student ID" required="" /></td>
+                </tr>
+                <tr>
+                    <td><b>Year Of Studing : </b></td>
+                    <td><input type="number" name="Year Of Studing" required="" /></td>
+                </tr>
+                <tr>
+                    <td><b>Section : </b></td>
+                    <td><input type="text" name="Section" required="" /></td>
+                </tr>
+                <tr>
+                    <td><b>Phone no. : </b></td>
+                    <td><input type="number" name="Phone no." required="" /></td>
+                </tr>
+                <tr>
+                    <td><b>Email ID : </b></td>
+                    <td><input type="text" name="Email ID" required="" /></td>
+                </tr>
+                <tr>
+                    <td><b>Name Of The Event Want to Participate : </b></td>
+                    <td><input type="text" name="Name Of The Event Want to Participate" required="" /></td>
+                </tr>
+                <tr>
+                    <td><b>Gender : </b></td>
+                    <td><input type="radio" name="Gender" value="Male">Male<br>
+                        <input type="radio" name="Gender" value="Female">Female<br/></td>
+                </tr>
+
+            </table>
+            <br><br>
+            <input type="submit" name="Submit" value="Submit" id="submit">
+        </label>
+                </center>
+            </form>
+        </div>
+        <!--end register-->
+    </div>
+    <!--end main-->
+    <script type="text/javascript">
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbznnnRifShUv9y5mv6Mcl-Rq1oWnwWytcFRGrSE9DgwoTBL8JCSsWtTDc9innVdhmosyA/exec'
+        const form = document.forms['google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => alert("You have successfully submitted."))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html>
